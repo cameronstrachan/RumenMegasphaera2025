@@ -1,0 +1,22 @@
+{
+  "version": "1.2",
+  "dbname": "Megasphaera_hexanoica_MH",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "/Users/cameronstrachan/Research/2023/RumenMycotoxins/data/strain/Megasphaera_hexanoica_MH.faa",
+  "number-of-letters": 846596,
+  "number-of-sequences": 2730,
+  "last-updated": "2023-07-17T11:45:00",
+  "number-of-volumes": 1,
+  "bytes-total": 1354426,
+  "bytes-to-cache": 871359,
+  "files": [
+    "Megasphaera_hexanoica_MH.pdb",
+    "Megasphaera_hexanoica_MH.phr",
+    "Megasphaera_hexanoica_MH.pin",
+    "Megasphaera_hexanoica_MH.pot",
+    "Megasphaera_hexanoica_MH.psq",
+    "Megasphaera_hexanoica_MH.ptf",
+    "Megasphaera_hexanoica_MH.pto"
+  ]
+}

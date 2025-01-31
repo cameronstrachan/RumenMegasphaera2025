@@ -1,0 +1,6 @@
+blastx -query Megasphaera_genes.fna -db Megasphaera_elsdenii_2410 -num_threads 4 -max_target_seqs 1 -max_hsps 1 -outfmt '6 qseqid sseqid pident sstart send qstart qend evalue bitscore score qlen length' -out instrain_genes_vs_Megasphaera_elsdenii_2410.fasta
+
+blastx -query Megasphaera_genes.fna -db Megasphaera_hexanoica_MH -num_threads 4 -max_target_seqs 1 -max_hsps 1 -outfmt '6 qseqid sseqid pident sstart send qstart qend evalue bitscore score qlen length' -out instrain_genes_vs_Megasphaera_hexanoica_MH.fasta
+
+
+blastx -query Megasphaera_genes.fna -db marker_proteins -num_threads 4 -max_target_seqs 1 -max_hsps 1 -outfmt '6 qseqid sseqid pident sstart send qstart qend evalue bitscore score qlen length' -out instrain_genes_vs_marker_proteins

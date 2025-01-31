@@ -1,0 +1,9 @@
+"genome","kingdom","phylum","class","order","family","genus","species","n_genomes_total","n_genomes_family","source","ANI_95_group","completeness","contamination","strain_heterogeneity"
+"10677_0019_idba_bin.218","Bacteria","Firmicutes","Clostridia","Clostridiales","Lachnospiraceae",NA,"uncultured Lachnospiraceae bacterium",4941,640,"Adult Cattle Rumen",1,85.73,5.2,7.14
+"Megasphaera_elsdenii_2410","Bacteria","Firmicutes","Negativicutes","Veillonellales","Veillonellaceae","Megasphaera","Megasphaera elsdenii",4,2,"control",2,99.4,0.6,0
+"10674_0009_idba_bin.117","Bacteria","Firmicutes","Clostridia","Clostridiales","Ruminococcaceae",NA,"Ruminococcaceae bacterium",4941,1111,"Adult Cattle Rumen",3,92.53,7.34,5.56
+"10678_0051_idba_bin.51","Bacteria","Firmicutes","Clostridia","Clostridiales","Clostridiaceae","Sarcina","uncultured Sarcina sp.",4941,35,"Adult Cattle Rumen",4,97.78,8.91,8.11
+"10674_min2k_bin.1792","Bacteria","Firmicutes","Clostridia","Clostridiales","Lachnospiraceae",NA,"uncultured Lachnospiraceae bacterium",4941,640,"Adult Cattle Rumen",5,98.94,0,0
+"10676_0049_idba_bin.70","Bacteria","Firmicutes","Clostridia","Clostridiales","Ruminococcaceae",NA,"Ruminococcaceae bacterium",4941,1111,"Adult Cattle Rumen",6,93,0.84,0
+"10676_min2k_bin.2753","Bacteria","Firmicutes","Clostridia","Clostridiales","Lachnospiraceae",NA,"uncultured Lachnospiraceae bacterium",4941,640,"Adult Cattle Rumen",7,98.21,0,0
+"10676_min2k_bin.3406","Bacteria","Firmicutes","Clostridia","Clostridiales","Lachnospiraceae","Lachnoclostridium","uncultured Lachnoclostridium sp.",4941,640,"Adult Cattle Rumen",8,98.1,0.63,0

@@ -1,0 +1,22 @@
+{
+  "version": "1.2",
+  "dbname": "marker_proteins",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "marker_proteins.fasta",
+  "number-of-letters": 2376,
+  "number-of-sequences": 7,
+  "last-updated": "2024-08-22T11:29:00",
+  "number-of-volumes": 1,
+  "bytes-total": 151774,
+  "bytes-to-cache": 2552,
+  "files": [
+    "marker_proteins.pdb",
+    "marker_proteins.phr",
+    "marker_proteins.pin",
+    "marker_proteins.pot",
+    "marker_proteins.psq",
+    "marker_proteins.ptf",
+    "marker_proteins.pto"
+  ]
+}

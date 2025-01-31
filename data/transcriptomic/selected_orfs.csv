@@ -1,0 +1,22 @@
+﻿orf,gene,pathway,strain
+FFHCJIBM_00062,crt,rBOX,Melsdenii
+NKFGLIEL_02204,crt,rBOX,Mhexanoica
+FFHCJIBM_02005,fba,glycolysis,Melsdenii
+NKFGLIEL_02272,fba,glycolysis,Mhexanoica
+FFHCJIBM_01327,gapA,glycolysis,Melsdenii
+NKFGLIEL_00242,gapA,glycolysis,Mhexanoica
+FFHCJIBM_00431,glcD,lactate,Melsdenii
+NKFGLIEL_02799,glcD,lactate,Mhexanoica
+FFHCJIBM_00063,hbd,rBOX,Melsdenii
+NKFGLIEL_02205,hbd,rBOX,Mhexanoica
+FFHCJIBM_00430,larA,lactate,Melsdenii
+NKFGLIEL_02798,larA,lactate,Mhexanoica
+FFHCJIBM_01231,lcdA,acrylate operon,Melsdenii
+FFHCJIBM_01232,lcdB,acrylate operon,Melsdenii
+FFHCJIBM_00164,lldD,lactate,Melsdenii
+NKFGLIEL_01314,lldD,lactate,Mhexanoica
+FFHCJIBM_00432,permease1,lactate,Melsdenii
+NKFGLIEL_02800,permease1,lactate,Mhexanoica
+FFHCJIBM_01226,permease2,acrylate operon,Melsdenii
+FFHCJIBM_00648,pgi,glycolysis,Melsdenii
+NKFGLIEL_00777,pgi,glycolysis,Mhexanoica

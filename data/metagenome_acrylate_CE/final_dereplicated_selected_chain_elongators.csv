@@ -1,0 +1,22 @@
+"genome","n_genomes_total","n_genomes_family","n_genomes_CE_larA","percent_CE_lactate_genomes","rBOX","linear","kingdom","phylum","class","order","family","genus","species","source","ANI_95_group","completeness","contamination","strain_heterogeneity"
+"10674_0003_idba_bin.96",4941,291,24,0.485731633272617,1,1,"Bacteria","Firmicutes","Bacilli","Erysipelotrichales","Erysipelotrichaceae","Bulleidia","Bulleidia intestinalis","Adult Cattle Rumen",1,100,0.32,0
+"Megasphaera_elsdenii_2410",4,2,4,100,1,1,"Bacteria","Firmicutes_C","Negativicutes","Veillonellales","Megasphaeraceae","Megasphaera","Megasphaera elsdenii","control",2,99.4,0.6,0
+"10675_0017_idba_bin.63",4941,640,24,0.485731633272617,1,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","CAG-791","CAG-791 sp002449595","Adult Cattle Rumen",3,80.47,3.27,3.7
+"10676_min2k_bin.3258",4941,640,24,0.485731633272617,0,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","CAG-791","CAG-791 sp902783385","Adult Cattle Rumen",4,83.45,3.8,21.43
+"10677_0019_idba_bin.37",4941,640,24,0.485731633272617,1,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","UBA2912","UBA2912 sp902787905","Adult Cattle Rumen",5,82.27,1.48,33.33
+"10677_0023_idba_bin.13",4941,640,24,0.485731633272617,1,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","UBA2912","UBA2912 sp900314775","Adult Cattle Rumen",6,98.66,0.67,0
+"10677_0023_idba_bin.239",4941,291,24,0.485731633272617,1,1,"Bacteria","Firmicutes","Bacilli","Erysipelotrichales","Erysipelotrichaceae","Bulleidia","Bulleidia sp900314905","Adult Cattle Rumen",7,97.14,0.45,0
+"10677_0034_idba_bin.198",4941,1753,24,0.485731633272617,1,0,"Bacteria","Firmicutes_A","Clostridia","Peptostreptococcales","Anaerovoracaceae","RUG13615","RUG13615 sp902790905","Adult Cattle Rumen",8,100,0,0
+"malmuthuge.164",195,31,9,4.61538461538462,1,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","Eubacterium_I","Eubacterium_I sp000270305","Calf Rumen",9,98.56,1.15,0
+"malmuthuge.34",195,31,9,4.61538461538462,1,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","Bilifractor","Bilifractor sp900318755","Calf Rumen",10,96.82,0.64,0
+"10677_min2k_bin.3664",4941,640,24,0.485731633272617,0,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","Bilifractor","Bilifractor sp902797025","Adult Cattle Rumen",11,94.97,0.64,0
+"10677_min2k_bin.4359",4941,640,24,0.485731633272617,0,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","UBA6987","UBA6987 sp902797385","Adult Cattle Rumen",12,90.12,1.45,50
+"10678_0024_idba_bin.135",4941,640,24,0.485731633272617,1,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","CAG-791","CAG-791 sp900317555","Adult Cattle Rumen",13,93.2,2.03,20
+"10678_0051_idba_bin.51",4941,35,24,0.485731633272617,1,1,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","CAG-791","CAG-791 sp900101015","Adult Cattle Rumen",14,97.78,8.91,8.11
+"10678_min2k_bin.2957",4941,640,24,0.485731633272617,1,0,"Bacteria","Firmicutes_A","Clostridia","Lachnospirales","Lachnospiraceae","CAG-791","CAG-791 sp900313745","Adult Cattle Rumen",15,80.93,2,20
+"Megasphaera_hexanoica_MH",4,2,4,100,1,1,"Bacteria","Firmicutes_C","Negativicutes","Veillonellales","Megasphaeraceae","Caecibacter","Caecibacter massiliensis","control",16,100,0.2,0
+"Pseudoramibacter_alactolyticus_ATCC23263",4,1,4,100,1,1,"Bacteria","Firmicutes_A","Clostridia","Eubacteriales","Eubacteriaceae","Pseudoramibacter","Pseudoramibacter alactolyticus","control",17,99.88,1.06,0
+"Ruminococcaceae_CPB6",4,1,4,100,1,1,"Bacteria","Firmicutes_A","Clostridia","Oscillospirales","Acutalibacteraceae","Caproicibacterium","Caproicibacterium sp002119605","control",18,98.66,0,0
+"malmuthuge.128",195,5,9,4.61538461538462,1,1,"Bacteria","Firmicutes","Bacilli","Erysipelotrichales","Erysipelotrichaceae","Bulleidia","Bulleidia timonensis","Calf Rumen",19,98.91,2.22,0
+"malmuthuge.158",195,2,9,4.61538461538462,1,1,"Bacteria","Firmicutes_A","Clostridia","Eubacteriales","Eubacteriaceae","Pseudoramibacter","Pseudoramibacter fermentans","Calf Rumen",20,51.76,0.23,0
+"malmuthuge.79",195,8,9,4.61538461538462,1,1,"Bacteria","Firmicutes_A","Clostridia","Oscillospirales","Oscillospiraceae","Intestinimonas","Intestinimonas butyriciproducens","Calf Rumen",21,94.83,5.86,6.67
