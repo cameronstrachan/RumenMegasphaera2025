@@ -38,18 +38,18 @@ plot_ph
 
 ###
 
-df_depth_summary <- read_csv("data/metagenomic/fasta_cov_depth_compiled_hybrid_clean.csv", col_types = cols(.default = "c"))
+df_depth_summary <- read_csv("data/metagenomic/rusitec/fasta_cov_depth_compiled_hybrid_clean.csv", col_types = cols(.default = "c"))
 
 df_depth_summary$`...1` <- NULL
 df_depth_summary$sample_id <- gsub("2\\#", "", df_depth_summary$reads_file)
 
-df_classification <- read.delim("data/metagenomic/gtdbtk.bac120.summary.tsv") %>%
+df_classification <- read.delim("data/metagenomic/rusitec/gtdbtk.bac120.summary.tsv") %>%
   rename(bin = user_genome) %>%
   select(bin, classification) %>%
   separate(classification, into = c("domain", "phylum", "class", "order", "family", "genus", "species"), sep = ";") %>%
   select(-domain)
 
-df_meta <- read_csv("data/metagenomic/sample_map_vbcf.csv" , col_types = cols(.default = "c"))
+df_meta <- read_csv("data/metagenomic/rusitec/sample_map_vbcf.csv" , col_types = cols(.default = "c"))
 
 df_compiled <- inner_join(df_depth_summary, df_classification) %>%
   inner_join(df_meta) %>%

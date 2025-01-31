@@ -11,12 +11,12 @@ df_ANI$X5 <- NULL
 
 colnames(df_ANI) <- c("Genome1", "Genome2", "ANI")
 
-df_map1 <-  read_csv("data/strain/strain_map2.csv") %>%
+df_map1 <-  read_csv("data/strain/meta/strain_map2.csv") %>%
   rename(Genome1 = Genome) %>%
   rename(Species1 = Species) %>%
   rename(Host1 = Host)
 
-df_map2 <-  read_csv("data/strain/strain_map2.csv") %>%
+df_map2 <-  read_csv("data/strain/meta/strain_map2.csv") %>%
   rename(Genome2 = Genome) %>%
   rename(Species2 = Species) %>%
   rename(Host2 = Host)
@@ -73,11 +73,11 @@ df_compiled_trim <- df_compiled %>%
   filter(allele_count >= 2) %>%
   filter(!is.na(gene))
 
-blast_map_Mhex <- read_delim("data/strain/instrain/blast_map/instrain_genes_vs_Megasphaera_hexanoica_MH.fasta", delim = "\t", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
+blast_map_Mhex <- read_delim("data/strain/instrain/blast/instrain_genes_vs_Megasphaera_hexanoica_MH.fasta", delim = "\t", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
 
 colnames(blast_map_Mhex) <- c("qseqid", "sseqid", "pident", "sstart", "send", "qstart", "qend", "evalue", "bitscore", "score", "qlen", "length")
 
-Mhex_annotations <- read_delim("data/strain/instrain/blast_map/Megasphaera_hexanoica_MH.tsv", delim = "\t", escape_double = FALSE, trim_ws = TRUE) %>%
+Mhex_annotations <- read_delim("data/strain/instrain/blast/Megasphaera_hexanoica_MH.tsv", delim = "\t", escape_double = FALSE, trim_ws = TRUE) %>%
   rename(gene_name = gene)
 
 
@@ -92,11 +92,11 @@ blast_map_Mhex <- blast_map_Mhex %>%
 
 blast_map_Mhex$species <- "Mhexanoica"
 
-blast_map_Mels <- read_delim("data/strain/instrain/blast_map/instrain_genes_vs_Megasphaera_elsdenii_2410.fasta", delim = "\t", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
+blast_map_Mels <- read_delim("data/strain/instrain/blast/instrain_genes_vs_Megasphaera_elsdenii_2410.fasta", delim = "\t", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
 
 colnames(blast_map_Mels) <- c("qseqid", "sseqid", "pident", "sstart", "send", "qstart", "qend", "evalue", "bitscore", "score", "qlen", "length")
 
-Mels_annotations <- read_delim("data/strain/instrain/blast_map/Megasphaera_elsdenii_2410.tsv", delim = "\t", escape_double = FALSE, trim_ws = TRUE) %>%
+Mels_annotations <- read_delim("data/strain/instrain/blast/Megasphaera_elsdenii_2410.tsv", delim = "\t", escape_double = FALSE, trim_ws = TRUE) %>%
   rename(gene_name = gene)
 
 
@@ -115,7 +115,7 @@ blast_map_combined <- bind_rows(blast_map_Mhex, blast_map_Mels)
 
 ###
 
-df_malmuthuge_meta <- read_csv("data/metagenomic/malmuthuge_meta.csv")
+df_malmuthuge_meta <- read_csv("data/metagenomic/meta/malmuthuge_meta.csv")
 
 df_compiled_SNPs_per_gene <- df_compiled_trim %>%
   

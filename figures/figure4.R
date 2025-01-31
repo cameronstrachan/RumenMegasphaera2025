@@ -3,19 +3,19 @@ library(tidyr)
 library(readr)
 library(ggplot2)
 
-kamke_meta1_df <- read_csv("data/public/kamke2016_meta1.csv", col_types = cols(.default = col_character()))
-stepanchenko_meta1_df <- read_csv("data/public/stepanchenko2023_meta1.csv", col_types = cols(.default = col_character()))
+kamke_meta1_df <- read_csv("data/amplicon/meta/kamke2016_meta1.csv", col_types = cols(.default = col_character()))
+stepanchenko_meta1_df <- read_csv("data/amplicon/meta/stepanchenko2023_meta1.csv", col_types = cols(.default = col_character()))
 meta1_df <- bind_rows(kamke_meta1_df, stepanchenko_meta1_df)
 
-kamke_meta2_df <- read_csv("data/public/kamke2016_meta2.csv", col_types = cols(.default = col_character()))
-stepanchenko_meta2_df <- read_csv("data/public/stepanchenko2023_meta2.csv", col_types = cols(.default = col_character()))
+kamke_meta2_df <- read_csv("data/amplicon/meta/kamke2016_meta2.csv", col_types = cols(.default = col_character()))
+stepanchenko_meta2_df <- read_csv("data/amplicon/meta/stepanchenko2023_meta2.csv", col_types = cols(.default = col_character()))
 meta2_df <- bind_rows(kamke_meta2_df, stepanchenko_meta2_df)
 
-kamke_count_df <- read.delim("data/public/feature-table-100-kamke2016.txt", header=TRUE) %>%
+kamke_count_df <- read.delim("data/amplicon/feature_tables/feature-table-100-kamke2016.txt", header=TRUE) %>%
   gather(accession, count, -asv)
 kamke_count_df$study <- "kamke2016"
 
-stepanchenko_count_df <- read.delim("data/public/feature-table-100-stepanchenko2023.txt", header=TRUE) %>%
+stepanchenko_count_df <- read.delim("data/amplicon/feature_tables/feature-table-100-stepanchenko2023.txt", header=TRUE) %>%
   gather(accession, count, -asv)
 stepanchenko_count_df$study <- "stepanchenko2023"
 
@@ -68,11 +68,11 @@ print(wilcoxon_test)
 
 blast_colnames <- c("asv", "sseqid", "pident", "sstart", "send", "qstart", "qend", "evalue", "bitscore", "score", "qlen", "length")
 
-Mhex_blast <- read_delim("data/public4/mcfarland2019_against_Megasphaera_hexanoica_MH.txt", delim = "\t", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
+Mhex_blast <- read_delim("data/amplicon/blastn/mcfarland2019_against_Megasphaera_hexanoica_MH.txt", delim = "\t", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
 colnames(Mhex_blast) <- blast_colnames 
 Mhex_blast$strain <- "Mhexanoica"
 
-Mels_blast <- read_delim("data/public4/mcfarland2019_against_Megasphaera_elsdenii_2410.txt", delim = "\t", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
+Mels_blast <- read_delim("data/amplicon/blastn/mcfarland2019_against_Megasphaera_elsdenii_2410.txt", delim = "\t", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
 colnames(Mels_blast) <- blast_colnames 
 Mels_blast$strain <- "Melsdenii"
 
@@ -80,13 +80,13 @@ blast_select_df <- bind_rows(Mhex_blast, Mels_blast) %>%
   filter(bitscore > 402) %>%
   select(asv, strain)
 
-meta1_df <- read_csv("data/public4/mcfarland_meta1.csv")
+meta1_df <- read_csv("data/amplicon/meta/mcfarland_meta1.csv")
 
-meta2_df <- read_csv("data/public4/mcfarland_meta2.csv") %>%
+meta2_df <- read_csv("data/amplicon/meta/mcfarland_meta2.csv") %>%
   select(-Sex, -Time, -Days) %>%
   distinct()
 
-meta3_df <- read_csv("data/public4/mcfarland_meta3.csv")
+meta3_df <- read_csv("data/amplicon/meta/mcfarland_meta3.csv")
 
 
 meta_df <- inner_join(meta1_df, meta2_df) %>%
@@ -94,7 +94,7 @@ meta_df <- inner_join(meta1_df, meta2_df) %>%
 
 meta_df$Had_Scours[is.na(meta_df$Had_Scours)] <- "N"
 
-count_df <- read_delim("data/public4/feature-table-100-mcfarland2019.txt", 
+count_df <- read_delim("data/amplicon/feature_tables/feature-table-100-mcfarland2019.txt", 
                        delim = "\t", escape_double = FALSE, 
                        trim_ws = TRUE) %>%
   gather(Accession, count, -asv) %>%
@@ -109,7 +109,7 @@ count_df <- read_delim("data/public4/feature-table-100-mcfarland2019.txt",
   mutate(rel_ab = (count / total_count)*100) %>%
   select(-asv, -Accession, -count) 
 
-meta4_df <- read_csv("data/public4/mcfarland_meta4.csv")
+meta4_df <- read_csv("data/amplicon/meta/mcfarland_meta4.csv")
 
 df_cor <- count_df %>%
   inner_join(meta4_df) %>% 

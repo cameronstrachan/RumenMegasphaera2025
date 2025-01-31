@@ -4,11 +4,11 @@ library(dplyr)
 library(ggplot2)
 
 
-annotations_df <- read_csv("data/metagenome_acrylate_CE/concatenated_CE_genomes.csv")
+annotations_df <- read_csv("data/metagenomic/acrylate_CE_screen/concatenated_CE_genomes.csv")
 
 annotations_ribosomal_df <- annotations_df[(grepl("rps", annotations_df$Preferred_name) | grepl("rpl", annotations_df$Preferred_name)),]
 
-gene_len_df <- read_csv("data/metagenome_acrylate_CE/gene_lengths.csv") %>%
+gene_len_df <- read_csv("data/metagenomic/acrylate_CE_screen/gene_lengths.csv") %>%
   rename(sseqid = Header)
 
 
@@ -31,9 +31,9 @@ annotations_ribosomal_clean_df <- annotations_ribosomal_df %>%
 #ERR32 = stewart
 #SRR51 = malmuthuge
 
-# blast_reads_out_df <- read_csv("data/metagenome_acrylate_CE/compiled_trimmed_blast_mapped_reads.csv")
+# blast_reads_out_df <- read_csv("data/metagenomic/acrylate_CE_screen/compiled_trimmed_blast_mapped_reads.csv")
 # 
-# total_reads_df <- read_csv("data/metagenome_acrylate_CE/total_read_counts.csv") %>%
+# total_reads_df <- read_csv("data/metagenomic/acrylate_CE_screen/total_read_counts.csv") %>%
 #   mutate(file = gsub(".fastq", "", Filename))
 # 
 # 
@@ -57,12 +57,12 @@ annotations_ribosomal_clean_df <- annotations_ribosomal_df %>%
 #   
 #   mutate(normalized_reads_per_kB_per_M = ((n_reads_mapped / total_ribosomal_gene_len) / ReadCount)*1000000000)
 
-#write.csv(blast_reads_out_ribosomal_df, "data/metagenome_acrylate_CE/summarized_blasted_reads_to_ribosomal_proteins.csv",  row.names = FALSE)
+#write.csv(blast_reads_out_ribosomal_df, "data/metagenomic/acrylate_CE_screen/summarized_blasted_reads_to_ribosomal_proteins.csv",  row.names = FALSE)
 
-blast_reads_out_ribosomal_df <- read_csv("data/metagenome_acrylate_CE/summarized_blasted_reads_to_ribosomal_proteins.csv")
+blast_reads_out_ribosomal_df <- read_csv("data/metagenomic/acrylate_CE_screen/summarized_blasted_reads_to_ribosomal_proteins.csv")
 ####
 
-genome_order_df <- read_csv("data/metagenome_acrylate_CE/genome_order.csv")
+genome_order_df <- read_csv("data/metagenomic/acrylate_CE_screen/genome_order.csv")
 
 blast_reads_out_ribosomal_df$genome <- factor(blast_reads_out_ribosomal_df$genome, levels = rev(genome_order_df$genome))
 
@@ -81,14 +81,14 @@ ggplot(blast_reads_out_ribosomal_df, aes(x = genome, y = normalized_reads_per_kB
 
 ####
 
-comb_classification_df <- read_csv("data/metagenome_acrylate_CE/combined_classification.csv")
+comb_classification_df <- read_csv("data/metagenomic/acrylate_CE_screen/combined_classification.csv")
 
-CE_genomes_df <- read_csv("data/metagenome_acrylate_CE/final_dereplicated_selected_chain_elongators.csv") %>%
+CE_genomes_df <- read_csv("data/metagenomic/acrylate_CE_screen/final_dereplicated_selected_chain_elongators.csv") %>%
   select(genome, rBOX, linear) %>%
   gather(pathway, pathway_pres, -genome) %>%
   filter(pathway_pres != 0)
 
-acrylate_genomes_df <- read_csv("data/metagenome_acrylate_CE/final_dereplicated_acrylate_pathway_genomes.csv") %>%
+acrylate_genomes_df <- read_csv("data/metagenomic/acrylate_CE_screen/final_dereplicated_acrylate_pathway_genomes.csv") %>%
   select(genome) %>%
   mutate(pathway = "acrylate") %>%
   mutate(pathway_pres = 1)

@@ -3,7 +3,15 @@ library(tidyr)
 library(dplyr)
 library(ggplot2)
 
-blast_files <- list.files("data/public2/blastn", pattern = ".txt")
+blast_files <- c("gaire2023_against_Megasphaera_elsdenii_2410.txt",
+                 "gaire2023_against_Megasphaera_hexanoica_MH.txt",
+                 "kodi2022_against_Megasphaera_elsdenii_2410.txt",
+                 "kodi2022_against_Megasphaera_hexanoica_MH.txt",
+                 "ohara2020_against_Megasphaera_elsdenii_2410.txt",
+                 "ohara2020_against_Megasphaera_hexanoica_MH.txt",
+                 "wang2019_against_Megasphaera_elsdenii_2410.txt",
+                 "wang2019_against_Megasphaera_hexanoica_MH.txt")
+
 
 blast_colnames <- c("ASV", "sseqid", "pident", "sstart", "send", "qstart", "qend", "evalue", "bitscore", "score", "qlen", "length")
 
@@ -13,7 +21,7 @@ i <- 1
 
 for (file in blast_files){
   
-  blast_df <- read_delim(paste("data/public2/blastn", file, sep = "/"), 
+  blast_df <- read_delim(paste("data/amplicon/blastn", file, sep = "/"), 
                          delim = "\t", escape_double = FALSE, 
                          col_names = FALSE, trim_ws = TRUE) 
   
@@ -37,7 +45,10 @@ blast_summary_df <- bind_rows(blast_df_list) %>%
   separate(file, into=c("study", "strain"), sep = "_against_") %>%
   mutate(strain = gsub(".txt", "", strain))
 
-meta_data_files <- list.files("data/public2/meta", pattern = ".csv")
+meta_data_files <- c("gaire2023_meta_data.csv",
+                     "kodi2022_meta_data_control.csv",
+                     "ohara2020_meta_data_liquid.csv",
+                     "wang2019_meta_data_control.csv")
 
 meta_df_list <- list()
 
@@ -46,7 +57,7 @@ i <- 1
 
 for (file in meta_data_files){
   
-  meta_df <- read_csv(paste("data/public2/meta", file, sep = "/"))
+  meta_df <- read_csv(paste("data/amplicon/meta", file, sep = "/"))
   
   meta_df_list[[i]] <- meta_df
   i <- i + 1
@@ -54,16 +65,17 @@ for (file in meta_data_files){
 
 meta_summary_df <- bind_rows(meta_df_list)
 
-### COUNT DATA ###
-
-count_data_files <- list.files("data/public2/feature_tables", pattern = ".txt")
+count_data_files <- c("feature-table-100-gaire2023.txt",
+                      "feature-table-100-kodi2022.txt",
+                      "feature-table-100-ohara2020.txt",
+                      "feature-table-100-wang2019.txt")
 
 count_df_list <- list()
 
 i <- 1
 
 for (file in count_data_files){
-  count_df <- read_delim(paste("data/public2/feature_tables", file, sep = "/"), 
+  count_df <- read_delim(paste("data/amplicon/feature_tables", file, sep = "/"), 
                          delim = "\t", escape_double = FALSE, 
                          trim_ws = TRUE) %>%
     gather(accession, count, -ASV) %>%
@@ -81,8 +93,6 @@ for (file in count_data_files){
 }
 
 count_summary_df <- bind_rows(count_df_list)
-
-### COMBINE DATA ###
 
 final_summary_df <- inner_join(count_summary_df, blast_summary_df) %>%
   
@@ -119,12 +129,12 @@ ggplot(final_summary_df, aes(x = day, y = rel_ab_adjusted)) +
 
 ###
 
-blast_Mels_df <- read_delim("data/public/blastn/mcgovern2020_against_Megasphaera_elsdenii_2410.txt", 
+blast_Mels_df <- read_delim("data/amplicon/blastn/mcgovern2020_against_Megasphaera_elsdenii_2410.txt", 
                             delim = "\t", escape_double = FALSE, 
                             col_names = FALSE, trim_ws = TRUE) %>%
   mutate(strain = "Melsdenii") 
 
-blast_Mhex_df <- read_delim("data/public/blastn/mcgovern2020_against_Megasphaera_hexanoica_MH.txt", 
+blast_Mhex_df <- read_delim("data/amplicon/blastn/mcgovern2020_against_Megasphaera_hexanoica_MH.txt", 
                             delim = "\t", escape_double = FALSE, 
                             col_names = FALSE, trim_ws = TRUE) %>%
   mutate(strain = "Mhexanoica") 
@@ -134,14 +144,14 @@ meta2_df <- bind_rows(blast_Mels_df, blast_Mhex_df) %>%
   select(X1, strain) %>%
   rename(asv = X1)
 
-count_df <- read_delim("data/public/feature-table-100-mcgovern2020.txt", 
+count_df <- read_delim("data/amplicon/feature_tables/feature-table-100-mcgovern2020.txt", 
                        delim = "\t", escape_double = FALSE, 
                        trim_ws = TRUE, skip = 1) %>%
   rename(asv = `#OTU ID`) %>%
   gather(accession, count, -asv) %>%
   mutate(accession = gsub("_pass", "", accession))
 
-meta1_df <- read_csv("data/public/Mcgovern2020_meta.csv") %>%
+meta1_df <- read_csv("data/amplicon/meta/Mcgovern2020_meta.csv") %>%
   rename(accession = Run) %>%
   separate(Treatment_and_Replicate, into = c("group", "Replicate"), sep = "_")
 
