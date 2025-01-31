@@ -101,9 +101,6 @@ ggplot(df_plot_megasphaera, aes(x = treatment, y = median_coverage, fill = treat
 
 ###
 
-df_compiled <- read_csv("data/metagenomic/compiled_bin_depth.csv" , col_types = cols(.default = "c")) %>%
-  select(-`...1`)
-
 df_selected_bin <- df_compiled %>%
   
   filter(bin == "114505.162") %>%
