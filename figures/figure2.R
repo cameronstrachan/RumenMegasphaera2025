@@ -3,7 +3,7 @@ library(tidyr)
 library(ggplot2)
 library(readr)
 
-df_ANI <- read_delim("data/strain/all_v_all_megasphaera_genomes_ani.txt", 
+df_ANI <- read_delim("data/strain/ani/all_v_all_megasphaera_genomes_ani.txt", 
                      delim = "\t", escape_double = FALSE, 
                      col_names = FALSE, trim_ws = TRUE)
 df_ANI$X4 <- NULL
