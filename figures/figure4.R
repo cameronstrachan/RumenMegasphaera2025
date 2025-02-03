@@ -146,14 +146,14 @@ ggplot(df_cor, aes(x=Lactate, y=rel_ab, colour=strain)) +
 
 ###
 
-metadata <- read.csv("data/transcriptomic/metadata.csv")
+metadata <- read.csv("data/transcriptomic/meta/public_metadata.csv")
 
-files <- list.files("data/transcriptomic/counts/", pattern = ".txt")
+files <- list.files("data/transcriptomic/counts_public/", pattern = ".txt")
 list_dfs <- list()
 i <- 1
 
 for (file in files){
-  df <- read.delim(paste("data/transcriptomic/counts/", file, sep = ""), header=FALSE)
+  df <- read.delim(paste("data/transcriptomic/counts_public/", file, sep = ""), header=FALSE)
   colnames(df) <- c("orf", "gene_name", "annotation", "count")
   df$accession <- gsub(".R1.metagenome.ref_genomes.sort.txt", "", file)
   
@@ -197,7 +197,7 @@ mapped_reads_norm <- compiled_data_sum %>%
 
 els_norm_factor <- mean(mapped_reads_norm$ratio)
 
-selected_orfs <- read_csv("data/transcriptomic/selected_orfs.csv")
+selected_orfs <- read_csv("data/transcriptomic/meta/selected_orfs.csv")
 
 final_df <- inner_join(compiled_data, selected_orfs) %>%
   
