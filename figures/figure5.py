@@ -14,9 +14,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data_path = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/\
-Dual electron donor experiment/August 2024/Dual electron donor compiled data 0824.xlsx'
-save_path = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper/Plots/'
+data_path = 'data/chemical_growth_kinetic/Dual electron donor compiled data 0824.xlsx'
+#save_path = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper/Plots/'
 
 ME_data = pd.read_excel(data_path, sheet_name = 'M. elsdenii')
 MH_data = pd.read_excel(data_path, sheet_name = 'M. hexanoica')
@@ -216,5 +215,7 @@ for ax in fig.axes:
 
 fig.legend(lines, labels, bbox_to_anchor=(1.18, 0.65)) 
 fig.suptitle('Megasphaera Dual Electron\nDonor Experiment')
-fig.savefig(save_path+'Dual Electron Donor Experiment Results.eps', dpi = 300, bbox_inches = 'tight')
+
+plt.show()
+#fig.savefig(save_path+'Dual Electron Donor Experiment Results.eps', dpi = 300, bbox_inches = 'tight')
 

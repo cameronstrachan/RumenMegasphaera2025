@@ -3,10 +3,10 @@ library(ggplot2)
 library(tidyr)
 library(dplyr)
 
-df_ph_t48 <- read_csv("data/chemical/pH_T48.csv", col_types = cols(.default = "c"))
+df_ph_t48 <- read_csv("data/chemical_growth_kinetic/pH_T48.csv", col_types = cols(.default = "c"))
 df_ph_t48$run <- "T48"
 
-df_ph_t49 <- read_csv("data/chemical/pH_T49.csv", col_types = cols(.default = "c"))
+df_ph_t49 <- read_csv("data/chemical_growth_kinetic/pH_T49.csv", col_types = cols(.default = "c"))
 df_ph_t49$run <- "T49"
 
 df_ph_exp1 <- bind_rows(df_ph_t48, df_ph_t49) %>%

@@ -8,16 +8,15 @@ Created on Wed Oct 30 14:05:53 2024
 Plot initial and final pH from batch experiments
 """
 
-path_save = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/Plots/'
+#path_save = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
+#/Plots/'
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
 ### pH dependency experiment November 2023 ###
-path_read = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/pH shifts.xlsx'
+path_read = 'data/chemical_growth_kinetic/pH shifts.xlsx'
 
 data = pd.read_excel(path_read, index_col = 0)
 print(data)
@@ -52,12 +51,11 @@ ax.set_ylabel('Final pH')
 ax.set_xlabel('Initial pH')
 ax.set_title('pH Changes')
 
-fig.savefig(path_save+'pH Change.eps', dpi = 300)
+#fig.savefig(path_save+'pH Change.eps', dpi = 300)
 
 ### Dual electron donor experiment August 2024 ###
 
-path_read = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/pH shifts dual electron donor.xlsx'
+path_read = 'data/chemical_growth_kinetic/pH shifts dual electron donor.xlsx'
 
 data = pd.read_excel(path_read, sheet_name = 'Means', index_col = 0)
 
@@ -104,5 +102,6 @@ ax.set_xticks(xs, means.index.to_list())
 ax.set_ylim(5, 7.5)
 ax.set_ylabel('pH')
 ax.set_title('pH Changes')
-fig.savefig(path_save+'Dual Electron Donors pH Change.eps', dpi = 300)
+#fig.savefig(path_save+'Dual Electron Donors pH Change.eps', dpi = 300)
     
+plt.show()

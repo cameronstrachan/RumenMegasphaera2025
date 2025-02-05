@@ -301,10 +301,10 @@ def growth_rates_graph_bio_rep(dict_list, strain, title, new, ax, colours):
             ax.set_xticks(np.arange(0, np.array(concentrations).max()+10, 10))
             plt.grid(True)
         
-path = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/High Throughput Kinetics/LHR Megapshaera HTK July 19th 2024/Megapshaera HTK July 19 2024 processed data.xlsx'
+path = 'data/chemical_growth_kinetic/Megapshaera HTK July 19 2024 processed data.xlsx'
 
-path_save = '/Users/connor/Documents/Projects/Lactate growth\
- (Roy and Cam)/High Throughput Kinetics/LHR Megapshaera HTK July 19th 2024/'
+#path_save = '/Users/connor/Documents/Projects/Lactate growth\
+# (Roy and Cam)/High Throughput Kinetics/LHR Megapshaera HTK July 19th 2024/'
  
 colours = ['r', 'b', 'g', 'y']
  
@@ -315,8 +315,8 @@ sheet_name = 'ME 1'
 
 fig_OD, fig_der, negatives, time, me_mu_dict_1 = high_throughput_graphs_replicates2(
     sheet_name, title, cutoff = 0, colours = colours, drop = [])
-fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
-fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
 
 #%% M. elsdenii 2
 
@@ -325,8 +325,8 @@ sheet_name = 'ME 2'
 
 fig_OD, fig_der, negatives, time, me_mu_dict_2 = high_throughput_graphs_replicates2(
     sheet_name, title, cutoff = 0, colours = colours, drop = [])
-fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
-fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
 
 #%% M. elsdenii 3
 
@@ -335,8 +335,8 @@ sheet_name = 'ME 3'
 
 fig_OD, fig_der, negatives, time, me_mu_dict_3 = high_throughput_graphs_replicates2(
     sheet_name, title, cutoff = 0, colours = colours, drop = [])
-fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
-fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
 
 #%% Monod plot elsdenii
 
@@ -349,8 +349,8 @@ fig_monod_bio_rep = growth_rates_graph_bio_rep(
     dict_list, 'M. elsdenii', title, new = True, ax = None, colours = colours)
 fig_monod, ax_monod = growth_rates_graph(dict_list, title, new = True, ax = None, colour = 'red', label = None)
 
-fig_monod_bio_rep.savefig(f'{path_save+title} monod biological rep.jpg', dpi = 300, bbox_inches = 'tight')
-fig_monod.savefig(f'{path_save+title} monod.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_monod_bio_rep.savefig(f'{path_save+title} monod biological rep.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_monod.savefig(f'{path_save+title} monod.jpg', dpi = 300, bbox_inches = 'tight')
 
 #%% M. hexanoica 1
 colours = ['r', 'b', 'g', 'y']
@@ -359,8 +359,8 @@ sheet_name = 'MH 1'
 
 fig_OD, fig_der, negatives, time, mh_mu_dict_1 = high_throughput_graphs_replicates2(
     sheet_name, title, cutoff = 10, colours = colours, drop = [])
-fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
-fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
 
 #%% M. hexanoica 2
 
@@ -369,8 +369,8 @@ sheet_name = 'MH 2'
 
 fig_OD, fig_der, negatives, time, mh_mu_dict_2 = high_throughput_graphs_replicates2(
     sheet_name, title, cutoff = 10, colours = colours, drop = [])
-fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
-fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
 
 #%% M. hexanoica 3
 
@@ -379,8 +379,8 @@ sheet_name = 'MH 3'
 
 fig_OD, fig_der, negatives, time, mh_mu_dict_3 = high_throughput_graphs_replicates2(
     sheet_name, title, cutoff = 10, colours = colours, drop = [2.5, 5])
-fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
-fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_OD.savefig(f'{path_save+title} logOD replicates.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_der.savefig(f'{path_save+title} derivative replicates.jpg', dpi = 300, bbox_inches = 'tight')
 
 #%% Monod plot hexanoica
 
@@ -396,8 +396,8 @@ dict_list = [mh_mu_dict_1, mh_mu_dict_2] # Excluding M hexanoica 3
 
 fig_monod, ax_monod = growth_rates_graph(dict_list, title, new = True, ax = None, colour = 'blue', label = None)
 
-fig_monod_bio_rep.savefig(f'{path_save+title} monod biological rep.jpg', dpi = 300, bbox_inches = 'tight')
-fig_monod.savefig(f'{path_save+title} monod.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_monod_bio_rep.savefig(f'{path_save+title} monod biological rep.jpg', dpi = 300, bbox_inches = 'tight')
+#fig_monod.savefig(f'{path_save+title} monod.jpg', dpi = 300, bbox_inches = 'tight')
 
 #%% Plot both growth rates (individual biological replicates)
 
@@ -415,7 +415,7 @@ growth_rates_graph_bio_rep(me_dict_list, 'M. elsdenii', title,
 growth_rates_graph_bio_rep(mh_dict_list, 'M. hexanoica', title, 
                    new = False, ax = ax, colours = mh_colours)
 fig6.legend(loc = [0.72, 0.6])
-fig6.savefig(f'{path_save+title} monod combined.jpg', dpi = 300, bbox_inches = 'tight')
+#fig6.savefig(f'{path_save+title} monod combined.jpg', dpi = 300, bbox_inches = 'tight')
 
 #%% Plot both growth rates averaged (without M hexanoica 3)
 
@@ -433,7 +433,10 @@ growth_rates_graph(mh_dict_list, title = None, label = '$\it{M. hexanoica}$',
                    new = False, ax = ax, colour = mh_colour)
 ax.set_title(title)
 fig6.legend(loc = [0.72, 0.78])
-fig6.savefig(f'{path_save+title} monod combined.jpg', dpi = 300, bbox_inches = 'tight')
-fig6.savefig(f'{path_save+title} monod combined.eps', dpi = 300, bbox_inches = 'tight')
-fig6.savefig(f'{path_save+title} monod combined.png', dpi = 300, bbox_inches = 'tight')
+#fig6.savefig(f'{path_save+title} monod combined.jpg', dpi = 300, bbox_inches = 'tight')
+#fig6.savefig(f'{path_save+title} monod combined.eps', dpi = 300, bbox_inches = 'tight')
+#fig6.savefig(f'{path_save+title} monod combined.png', dpi = 300, bbox_inches = 'tight')
 
+
+num_to_keep = 18; [plt.close(n) for n in plt.get_fignums() if n != num_to_keep]
+plt.show()

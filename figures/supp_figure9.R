@@ -3,7 +3,7 @@ library(tidyr)
 library(ggplot2)
 library(readr)
 
-mycotoxin_inhibition_df <- read_csv("data/growth/mycotoxin_inhibition.csv") %>%
+mycotoxin_inhibition_df <- read_csv("data/chemical_growth_kinetic/mycotoxin_inhibition.csv") %>%
   
   mutate(time_hrs = round(time / 60 / 60)) %>%
   mutate(od_blank = od - blank) %>%

@@ -3,10 +3,10 @@ library(ggplot2)
 library(tidyr)
 library(dplyr)
 
-df_vfa_t48 <- read_csv("data/chemical/VFA_T48.csv", col_types = cols(.default = "c"))
+df_vfa_t48 <- read_csv("data/chemical_growth_kinetic/VFA_T48.csv", col_types = cols(.default = "c"))
 df_vfa_t48$run <- "T48"
 
-df_vfa_t49 <- read_csv("data/chemical/VFA_T49.csv", col_types = cols(.default = "c"))
+df_vfa_t49 <- read_csv("data/chemical_growth_kinetic/VFA_T49.csv", col_types = cols(.default = "c"))
 df_vfa_t49$run <- "T49"
 
 df_vfa_exp1 <- bind_rows(df_vfa_t48, df_vfa_t49) %>%
@@ -49,12 +49,12 @@ ggplot(df_vfa_summary, aes(x = day, y = median_concentration, colour = treatment
 
 ####
 
-df_mcfa_t49 <- read_csv("data/chemical/MCFA_T49.csv", col_types = cols(.default = "c"))
+df_mcfa_t49 <- read_csv("data/chemical_growth_kinetic/MCFA_T49.csv", col_types = cols(.default = "c"))
 
 df_meta <- read_csv("data/meta/meta_combined_exp1.csv", col_types = cols(.default = "c")) %>%
   filter(run == "T49")
 
-df_mcfa_conv <- read_csv("data/chemical/MCFA_T49_conversion.csv", col_types = cols(.default = "c"))
+df_mcfa_conv <- read_csv("data/chemical_growth_kinetic/MCFA_T49_conversion.csv", col_types = cols(.default = "c"))
 
 df_mcfa_summary <- df_mcfa_t49 %>%
   left_join(df_meta, by = c("reactor")) %>%

@@ -12,11 +12,16 @@ of acetate from acetyl-CoA for each mole of product.
 """
 
 import os
-os.chdir(os.path.dirname(__file__))
+#os.chdir(os.path.dirname(__file__))
 from equilibrator_api import ComponentContribution, Q_
 cc = ComponentContribution()
 
 #%% User defined function for enzyme cost minimization
+
+# Cam reproduced the anlysis in a virtual env:
+# python -m venv ECM_virt_env
+# source ECM_virt_env/bin/activate
+# pip3 install numpy pandas equilibrator_api equilibrator_cache equilibrator_pathway
 
 import pandas as pd
 from equilibrator_api import Reaction, R, default_T
@@ -265,7 +270,7 @@ def ECM_energies(ecm_sol, thermo_model, title, path, scale):
     ax.set_xlim(scale*x[0]-1*scale, (scale*x[-1]+scale*1))
     ax.plot(np.append((np.append(x[0]-1*scale, x)), (x[-1]+scale*1)) , np.zeros(len(x)+2), color = 'xkcd:light grey', linewidth = 0.75) 
     plt.xticks(scale*x, thermo_model.reaction_names, rotation = 90, fontsize = 8)
-    plt.savefig(path+title+'.jpg', dpi = 300, bbox_inches = 'tight')
+    #plt.savefig(path+title+'.jpg', dpi = 300, bbox_inches = 'tight')
     
     return ecm_sol
 
@@ -391,7 +396,7 @@ def ECM(thermo_model,
     ax.set_ylabel("Enzyme Demand [M]")
     ax.set_ylim(bottom=base)
     
-    plt.savefig(path+title+'.jpg', dpi = 300, bbox_inches = 'tight')
+    #plt.savefig(path+title+'.jpg', dpi = 300, bbox_inches = 'tight')
     
     ECM_energies(ecm_sol, thermo_model, title+' Energies', path, scale = 0.8)
     
@@ -403,8 +408,7 @@ plt.rcdefaults()
 
 # Directory for saving images and model files
 
-ECM_path_save = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/\
-Paper/ECM graphs/'
+ECM_path_save = 'ECM_models/output/'
 
 # Simulation Configuration
 
@@ -503,8 +507,7 @@ dic = {}
 
 pmf = 0.200 # V
 
-model_file = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/Model Files/Lactate to Butyrate SLP with MWs.xlsx'
+model_file = 'ECM_models/Lactate to Butyrate SLP with MWs.xlsx'
 
 title = 'Butyrate (Acetate Recycling)'
 
@@ -516,8 +519,7 @@ dic[title] = (cost / atp, atp)
 
 #%% Caproate (Recycling)
 
-model_file = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/Model Files/Lactate to Caproate SLP with MWs.xlsx'
+model_file = 'ECM_models/Lactate to Caproate SLP with MWs.xlsx'
  
 title = 'Caproate (Acetate Recycling)'
 
@@ -529,8 +531,7 @@ dic[title] = (cost / atp, atp)
 
 pmf = 0.100
 
-model_file = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/Model Files/Lactate to Octanoate SLP with MWs.xlsx'
+model_file = 'ECM_models/Lactate to Octanoate SLP with MWs.xlsx'
 
 title = 'Octanoate (Acetate Recycling)'
 
@@ -542,8 +543,7 @@ dic[title] = (cost / atp, atp)
 
 pmf = 0.100 # V
 
-model_file = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/Model Files/Lactate to Butyrate IMF with MWs.xlsx'
+model_file = 'ECM_models/Lactate to Butyrate IMF with MWs.xlsx'
 
 title = 'Butyrate (Acetate Assimilation)'
 
@@ -553,8 +553,7 @@ dic[title] = (cost / atp, atp)
 
 #%% Caproate (Assimilating)
 
-model_file = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/Model Files/Lactate to Caproate IMF with MWs.xlsx'
+model_file = 'ECM_models/Lactate to Caproate IMF with MWs.xlsx'
  
 title = 'Caproate (Acetate Assimilation)'
 
@@ -566,8 +565,7 @@ dic[title] = (cost / atp, atp)
 
 pmf = 0.100
 
-model_file = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/Model Files/Lactate to Octanoate IMF with MWs.xlsx'
+model_file = 'ECM_models/Lactate to Octanoate IMF with MWs.xlsx'
 
 title = 'Octanoate (Acetate Assimilation)'
 
@@ -579,8 +577,7 @@ dic[title] = (cost / atp, atp)
 
 pmf = 0.100
 
-model_file = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper\
-/Model Files/Lactate to Propionate (Acrylate Pathway).xlsx'
+model_file = 'ECM_models/Lactate to Propionate (Acrylate Pathway).xlsx'
 
 title = 'Propionate'
 
@@ -593,7 +590,7 @@ dic[title] = (cost / atp, atp)
 print(dic)
 
 fig, axes = plt.subplots(2, 1, figsize = (6, 6), constrained_layout = True, sharex = True)
-path_save = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper/Plots/'
+path_save = 'ECM_models/output/'
 width = 0.4
 color1 = 'xkcd:grey'
 color2 = 'xkcd:dark grey'
@@ -659,15 +656,15 @@ ax.set_ylabel('ATP Yield\non Lactate')
 h, l = ax.get_legend_handles_labels()
 axes[0].legend(h, l)
 axes[0].set_title('Enzyme Costs and ATP Yields\nof Lactate Products')
-fig.savefig(path_save+'Cost and yield.eps', dpi = 300)
-fig.savefig(path_save+'Cost and yield.jpg', dpi = 300)
+#fig.savefig(path_save+'Cost and yield.eps', dpi = 300)
+#fig.savefig(path_save+'Cost and yield.jpg', dpi = 300)
 
 #%% Bar plot only assimilation
 
 print(dic)
 
 fig, axes = plt.subplots(2, 1, figsize = (6, 6), constrained_layout = True, sharex = True)
-path_save = '/Users/connor/Documents/Projects/Lactate growth (Roy and Cam)/Paper/Plots/'
+path_save = 'ECM_models/output/'
 width = 0.4
 color1 = 'xkcd:grey'
 color2 = 'xkcd:dark grey'
@@ -705,5 +702,4 @@ ax.bar(x, yields2, width = width, color = color2)
 ax.set_ylabel('ATP Yield\non Lactate')
 
 axes[0].set_title('Enzyme Costs and ATP Yields\nof Lactate Products')
-fig.savefig(path_save+'Cost and yield (only assimilation).eps', dpi = 300)
-
+fig.savefig(path_save+'Cost and yield (only assimilation).jpg', dpi = 300)

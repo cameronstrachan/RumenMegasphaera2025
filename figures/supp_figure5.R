@@ -3,10 +3,10 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-df_myco_t48 <- read_csv("data/chemical/myco_T48.csv", col_types = cols(.default = "c"))
+df_myco_t48 <- read_csv("data/chemical_growth_kinetic/myco_T48.csv", col_types = cols(.default = "c"))
 df_myco_t48$run <- "T48"
 
-df_myco_t49 <- read_csv("data/chemical/myco_T49.csv", col_types = cols(.default = "c"))
+df_myco_t49 <- read_csv("data/chemical_growth_kinetic/myco_T49.csv", col_types = cols(.default = "c"))
 df_myco_t49$run <- "T49"
 
 df_myco_exp1 <- bind_rows(df_myco_t48, df_myco_t49)
